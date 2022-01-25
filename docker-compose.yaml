@@ -1,0 +1,12 @@
+version: "3.5"
+services:
+ nats-server-01:
+    image: nats:latest
+    command: --config /tmp/nats.hcl
+    ports:
+      - "2442:2442"
+      - "4222:4222"
+      - "8222:8222"
+    volumes:
+      - ./storage/nats/server-01:/nats/storage
+      - ./server-01.hcl:/tmp/nats.hcl
